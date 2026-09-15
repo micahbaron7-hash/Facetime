@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoomCall</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="joinScreen">
+  <h1>RoomCall</h1>
+  <p>Video calls without a login.</p>
+
+  <input id="roomInput" placeholder="Enter room code">
+
+  <button onclick="joinRoom()">Join Call</button>
+
+  <button class="new" onclick="newRoom()">
+    Generate Room
+  </button>
+
+  <p id="error"></p>
+</div>
+
+<div id="callScreen" class="hidden">
+
+  <header>
+    <h2>RoomCall</h2>
+
+    <span>
+      Room: <b id="roomDisplay"></b>
+    </span>
+
+    <button onclick="copyLink()">
+      Copy Invite
+    </button>
+  </header>
+
+  <div id="videos"></div>
+
+  <div id="controls">
+
+    <button onclick="toggleMic()" id="micButton">
+      🎙️ Mute
+    </button>
+
+    <button onclick="toggleCamera()" id="cameraButton">
+      📷 Camera Off
+    </button>
+
+    <button onclick="leaveCall()" class="leave">
+      ☎ Leave
+    </button>
+
+  </div>
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
